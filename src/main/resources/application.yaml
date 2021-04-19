@@ -1,0 +1,23 @@
+camel:
+  component:
+    enabled: true
+    smpp:
+      configuration:
+        host: 192.168.1.1
+        system-id: bob
+        password: bob
+        source-addr: 5432
+        source-addr-ton: 0x05
+        source-addr-npi: 0x01
+        dest-addr-npi: 0x01
+        dest-addr-ton: 0x01
+        registered-delivery: 1
+    bean:
+      scope: singleton
+  springboot:
+    name: smpp-app
+    main-run-controller: false
+logging:
+  level:
+    org.apache.camel.component.smpp.SmppSubmitSmCommand: debug
+    org.apache.camel.component.smpp.MessageReceiverListenerImpl: debug
